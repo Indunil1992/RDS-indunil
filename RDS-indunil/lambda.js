@@ -6,12 +6,13 @@ exports.handler = function (event, context, callback) {
 
     // You must always end/destroy the DB connection after it's used
     rds.beginTransaction({
-        instanceIdentifier: 'indunil123123123123123123-'
+        instanceIdentifier: 'indunil1234567890'
     }, function (error, connection) {
         if (error) {
             throw error;
         }
     });
+
 
 
     callback(null, { "message": "Successfully executed" });
