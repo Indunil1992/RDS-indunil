@@ -1,11 +1,11 @@
 module.exports = function() {
     this.dbConnections = [];
 
-    this.dbConnections["indunil123456789-123456789-123456789-123456789-123456789-123456789-123456789-"] = {
-        host: process.env.EndPoint_rdsIndunil123456789123456789123456789123456789123456789123456789123456789,
-        port: process.env.Port_rdsIndunil123456789123456789123456789123456789123456789123456789123456789,
-        user: process.env.User_rdsIndunil123456789123456789123456789123456789123456789123456789123456789,
-        password: process.env.Password_rdsIndunil123456789123456789123456789123456789123456789123456789123456789,
+    this.dbConnections["indunil123123123123123123-"] = {
+        host: process.env.EndPoint_rdsIndunil123123123123123123,
+        port: process.env.Port_rdsIndunil123123123123123123,
+        user: process.env.User_rdsIndunil123123123123123123,
+        password: process.env.Password_rdsIndunil123123123123123123,
         database: "indunil"
     };
 };
