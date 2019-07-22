@@ -9,7 +9,9 @@ exports.handler = function (event, context, callback) {
         instanceIdentifier: 'indunil1234567890'
     }, function (error, connection) {
         if (error) {
+            console.log("error 1");
             throw error;
+            console.log("error 2");
         }
     });
 
