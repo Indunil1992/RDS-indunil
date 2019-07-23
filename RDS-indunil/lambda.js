@@ -7,12 +7,13 @@ exports.handler = function (event, context, callback) {
 
     // You must always end/destroy the DB connection after it's used
     rds.beginTransaction({
-        instanceIdentifier: 'Sachithraidentifier'
+        instanceIdentifier: 'InduInstance'
     }, function (error, connection) {
         if (error) {
             throw error;
         }
     });
+
 
 
     callback(null, { "message": "Successfully executed" });

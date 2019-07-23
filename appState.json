@@ -23,7 +23,7 @@
         "children": [],
         "isRemovable": true,
         "filePath": "RDS-indunil/lambda.js",
-        "code": "let SL_AWS = require('slappforge-sdk-aws');\nlet connectionManager = require('./ConnectionManager');\nconst rds = new SL_AWS.RDS(connectionManager);\n\nexports.handler = function (event, context, callback) {\n\n\n    // You must always end/destroy the DB connection after it's used\n    rds.beginTransaction({\n        instanceIdentifier: 'Sachithraidentifier'\n    }, function (error, connection) {\n        if (error) {\n            throw error;\n        }\n    });\n\n\n    callback(null, { \"message\": \"Successfully executed\" });\n}",
+        "code": "let SL_AWS = require('slappforge-sdk-aws');\nlet connectionManager = require('./ConnectionManager');\nconst rds = new SL_AWS.RDS(connectionManager);\n\nexports.handler = function (event, context, callback) {\n\n\n    // You must always end/destroy the DB connection after it's used\n    rds.beginTransaction({\n        instanceIdentifier: 'InduInstance'\n    }, function (error, connection) {\n        if (error) {\n            throw error;\n        }\n    });\n\n\n\n    callback(null, { \"message\": \"Successfully executed\" });\n}",
         "config": {
           "runtime": "nodejs8.10",
           "handler": "handler",
@@ -47,7 +47,7 @@
         "children": [],
         "isRemovable": true,
         "filePath": "RDS-indunil/ConnectionManager.js",
-        "code": "module.exports = function() {\n    this.dbConnections = [];\n\n    this.dbConnections[\"Sachithraidentifier\"] = {\n        host: process.env.EndPoint_rdsSachithraidentifier,\n        port: process.env.Port_rdsSachithraidentifier,\n        user: process.env.User_rdsSachithraidentifier,\n        password: process.env.Password_rdsSachithraidentifier,\n        database: \"sachithraDB\"\n    };\n};"
+        "code": "module.exports = function() {\n    this.dbConnections = [];\n\n    this.dbConnections[\"InduInstance\"] = {\n        host: process.env.EndPoint_rdsInduInstance,\n        port: process.env.Port_rdsInduInstance,\n        user: process.env.User_rdsInduInstance,\n        password: process.env.Password_rdsInduInstance,\n        database: \"indunilDBname\"\n    };\n};"
       }
     },
     "deletedFiles": [],
@@ -76,8 +76,8 @@
           "mode": 0
         }
       },
-      "rds-Sachithraidentifier": {
-        "name": "rds-Sachithraidentifier",
+      "rds-InduInstance": {
+        "name": "rds-InduInstance",
         "type": "RDS",
         "config": {
           "editMode": false,
@@ -91,18 +91,18 @@
               "dbEngineVersion": "5.7.19"
             },
             "rdsSetting": {
-              "instanceIdentifier": "Sachithraidentifier",
-              "masterUsername": "SachithraUsrname",
-              "masterPassword": "sachithra"
+              "instanceIdentifier": "InduInstance",
+              "masterUsername": "indumasterusrname",
+              "masterPassword": "indunilpassword"
             },
             "rdsDBOptions": {
-              "dbName": "sachithraDB",
+              "dbName": "indunilDBname",
               "dbPort": "3306"
             },
             "rdsInstanceArn": "",
             "Host": "",
             "doesExist": false,
-            "initializationQuery": "",
+            "initializationQuery": "CREATE TABLE Persons (\n    PersonID int,\n    LastName varchar(255),\n    FirstName varchar(255),\n    Address varchar(255),\n    City varchar(255) \n);",
             "alreadyDeployed": false
           },
           "rdsInstanceResources": [],
@@ -152,7 +152,7 @@
     "projectRegion": "us-east-1",
     "platform": "AWS",
     "platformRegions": {},
-    "lastSave": 1563858202387
+    "lastSave": 1563859883437
   },
   "VCS_STATE": {
     "provider": "GitHub",
